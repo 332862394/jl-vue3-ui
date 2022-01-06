@@ -12,10 +12,9 @@
 import { inject, Ref } from "vue";
 export default {
   setup() {
-    const menuVisible = inject<Ref<boolean>>("menuVisible");
-    console.log("topnav获取的menuVisible为：", menuVisible!.value);
+    const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
     const toggleMenu = () => {
-      menuVisible!.value = !menuVisible!.value;
+      menuVisible.value = !menuVisible.value;
     };
     return { toggleMenu };
   },
@@ -26,7 +25,10 @@ export default {
   background: pink;
   display: flex;
   padding: 16px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10;
   justify-content: center;
   align-items: center;
