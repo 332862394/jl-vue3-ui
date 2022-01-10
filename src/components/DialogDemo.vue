@@ -8,15 +8,23 @@
     :ok="f1"
     :cancel="f2"
   >
-    <div>111</div>
-    <div>222</div>
+    <template v-slot:content>
+      <strong>hi</strong>
+      <div>hi2</div>
+    </template>
+    <template v-slot:title>
+      <strong>加粗的标题</strong>
+    </template>
   </Dialog>
+  <h1>示例2</h1>
+  <Button @click="showDialog">show</Button>
 </template>
 
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue";
 import Button from "../lib/Button.vue";
 import { ref } from "vue";
+import { openDialog } from "../lib/openDialog";
 export default {
   components: {
     Dialog,
@@ -31,7 +39,19 @@ export default {
       return false;
     };
     const f2 = () => {};
-    return { x, toggle, f1, f2 };
+    const showDialog = () => {
+      openDialog({
+        title: "标题",
+        content: "你好",
+        ok() {
+          console.log("你好");
+        },
+        cancel() {
+          console.log("cancel");
+        },
+      });
+    };
+    return { x, toggle, f1, f2, showDialog };
   },
 };
 </script>

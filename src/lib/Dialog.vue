@@ -5,10 +5,11 @@
       <div class="gulu-dialog-wrapper">
         <div class="gulu-dialog">
           <header>
-            {{ title }} <span class="gulu-dialog-close" @click="close"></span>
+            <slot name="title" />
+            <span class="gulu-dialog-close" @click="close"></span>
           </header>
           <main>
-            <slot />
+            <slot name="content" />
           </main>
           <footer>
             <Button level="main" @click="ok">OK</Button>
@@ -24,10 +25,6 @@
 import Button from "./Button.vue";
 export default {
   props: {
-    title: {
-      type: String,
-      default: "提示",
-    },
     visible: {
       type: Boolean,
       default: false,
@@ -62,10 +59,11 @@ export default {
       }
     };
     const cancel = () => {
-      context.emit("cancel");
+      props.cancel?.();
       close();
     };
-    return { close, onClickOverlay, ok, cancel };
+    const showDialog = () => {};
+    return { close, onClickOverlay, ok, cancel, showDialog };
   },
 };
 </script>
