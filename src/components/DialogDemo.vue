@@ -23,7 +23,7 @@
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue";
 import Button from "../lib/Button.vue";
-import { ref } from "vue";
+import { ref, h } from "vue";
 import { openDialog } from "../lib/openDialog";
 export default {
   components: {
@@ -41,17 +41,23 @@ export default {
     const f2 = () => {};
     const showDialog = () => {
       openDialog({
-        title: "标题",
+        title: h("strong", {}, "标题"),
         content: "你好",
         ok() {
-          console.log("你好");
+          console.log("ok");
         },
         cancel() {
           console.log("cancel");
         },
       });
     };
-    return { x, toggle, f1, f2, showDialog };
+    return {
+      x,
+      toggle,
+      f1,
+      f2,
+      showDialog,
+    };
   },
 };
 </script>
