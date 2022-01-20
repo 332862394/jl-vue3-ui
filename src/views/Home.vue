@@ -3,8 +3,8 @@
     <div class="topnavAndBanner">
       <Topnav />
       <div class="banner">
-        <h1>轱辘UI</h1>
-        <h2>一个厉害的 UI 框架</h2>
+        <h1>JL-UI</h1>
+        <h2>一个自定义Vue3 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com">GitHub</a>
           <router-link to="/doc">开始</router-link>
@@ -18,7 +18,7 @@
             <use xlink:href="#icon-vue"></use>
           </svg>
           <h3>基于 Vue 3</h3>
-          <p>骄傲地使用了 Vue 3 Composition API</p>
+          <p>使用了 Vue 3 Composition API</p>
         </li>
         <li>
           <svg>
@@ -53,11 +53,7 @@ $green: #02bcb0;
 $border-radius: 4px;
 $color: #007974;
 .topnavAndBanner {
-  background: linear-gradient(
-    145deg,
-    rgba(227, 255, 253, 1) 0%,
-    rgba(183, 233, 230, 1) 100%
-  );
+  background: #39c4eb;
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
@@ -118,7 +114,14 @@ $color: #007974;
     padding: 8px 0;
     a {
       margin: 0 8px;
-      background: $green;
+      background-image: linear-gradient(
+        to right top,
+        #39c4eb,
+        #00b1e7,
+        #009ce2,
+        #0087d9,
+        #2b71cc
+      );
       color: white;
       display: inline-block;
       padding: 8px 24px;
